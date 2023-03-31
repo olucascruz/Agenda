@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <title>Agenda</title>
+</head>
+<body>
+    <div class="top_bar">
+        <a href="/user"  class="user_img">
+            <img src="https://i.pinimg.com/originals/57/00/c0/5700c04197ee9a4372a35ef16eb78f4e.png" height="40px" width="40px" alt="" srcset="">
+        </a>
+        <div class="logout">
+            <a href="logout">Sair</a>
+        </div>
+    </div>
+    <br>
+    <section class="content">
+        {% block content%}{% endblock %}
+    </section>
+    <br>
+    <div class="add_event">
+        <button onclick="location.href='/add_event'">+</button>
+    </div>
+    <br>
+    <div class="switch_screen">
+        <div>
+            <a href="/calendar">
+                <img class="calendar_img" src="/static/img/calendar.png" alt="calendario" height="50" width="50">
+            </a>
+        </div>
+        <div>
+            <a href="/list_event">
+                <img class="list_img" src="/static/img/list.png" alt="lista de eventos" height="50" width="50">
+            </a>
+        </div>
+    </div>
+    
+</body>
+</html>

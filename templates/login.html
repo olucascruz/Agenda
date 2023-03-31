@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <title>Agenda</title>
+</head>
+<body>
+
+    <div id="login">    
+        <img src="https://i.ibb.co/0rZnFXc/logo-1.png" alt="icone da agenda">
+        <h1 style="margin: 0;">Login</h1>
+        <br>
+        <form action="/login" method="POST">
+            <input name="email" type="text" placeholder="Email">
+            <br>
+            <input name="password" type="text" placeholder="Senha">
+            <br>
+            <a class= "link_cadastrar" href="/register_user">Cadastrar</a>
+            <br>
+            {% if error%}
+                <p class="error">{{error}}</p>
+            {% endif %}
+            <input class="button_login" type="submit"> 
+        </form>
+    </div>
+    <div>
+        {% for user in users %}
+            {{user}}
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/add_event.css">
+    <script src="../static/scripts/editEvent.js" defer></script>
+    <title>Agenda</title>
+</head>
+<body>
+    <div class="form_add_event">
+        <h1>Editar Evento</h1>
+        <hr>
+        <br>
+        <p id="event-id" style="display: none;">{{event['id']}}</p>
+        <form id= "form-edit-event" method="post">
+            <input name="title" type="text" placeholder="Titulo" value="{{event['title']}}">
+            <br>
+            <input placeholder="dd-mm-yyyy" name="date" type="date" id="date"  value="{{event['date']}}" required>
+            <input type="time" id="time" name="hour" required
+            value="{{event['hour']}}">
+            <br>
+            <textarea placeholder="Descrição" name="description" id="description" cols="30" rows="10">{{event['description']}}</textarea>
+            <br>     
+            <input type="submit">
+        </form>
+
+    </div>
+</body>
+</html>

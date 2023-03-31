@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/add_event.css">
+    <script type="module" src="/static/scripts/addEvent.js" defer></script>
+    <title>Agenda</title>
+</head>
+<body>
+    <div class="form_add_event">
+        <h1>Adicionar Evento</h1>
+        <hr>
+        <br>
+        <form method="post" id="form-add-event">
+            <input name="event_title" type="text" placeholder="Titulo">
+            <br>
+            <input placeholder="Data" name="event_date" type="date" id="date" required>
+            <input type="time" id="time" name="event_hour" required>
+            <br>
+            <textarea placeholder="Descrição" name="event_description" id="" cols="30" rows="10"></textarea>
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>

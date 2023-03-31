@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="/frontend/src/static/css/calendar.css">
+<!-- <script src="/static/scripts/calendar.js" defer></script> -->
+<script src="
+https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/index.global.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/fullcalendar@6.0.3/main.min.css
+" rel="stylesheet"></link>
+
+
+<div style="height:455px; width:400px;" id="calendar"></div>
+
+<script>
+    let calendarEl = document.getElementById("calendar");
+    let events = JSON.parse('{{events|tojson}}');
+    let the_events = []
+    events.map((event)=>{
+        let object = {
+            id:event['id'],
+            title:event['title'],
+            start:event['date']
+        }
+        the_events.push(object)
+    })
+    console.log(the_events);
+    let calendar = new FullCalendar.Calendar(calendarEl, {
+        locale:'pt-br',
+        buttonText: {
+        today: 'Hoje',
+        month: 'Mês',
+        week: 'Semana',
+        day: 'Hoje',
+        list: 'Lista'
+        },
+        events:the_events,
+        selectable:true,
+        select: (start, end)=>{
+            console.log(start)
+        },
+        eventClick:(info)=>{
+            window.location.href = `/edit_event/${info.event.id}`
+        }
+    })
+    calendar.render()
+    
+</script>
+
+
+{% endblock %}

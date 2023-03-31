@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/user.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/modal_delete.css">
+    <script src="../static/scripts/modalDelUser.js" defer></script>
+
+    <title>Agenda</title>
+</head>
+<body>
+    <div id="modal-user" class="modal_delete hidden" >
+        <form action="/del_user" method="post">
+            <p>Voce deseja mesmo deletar sua conta?</p>
+            <input type="text"  placeholder="senha"  name="password" value="{{user['id']}}">
+            <div class="btn-modal">
+            <button type="submit" class="btn-sim">Sim</button>
+            <button type="button" class="btn-nao">Não</button>
+            </div>
+        </form>
+    </div>
+    <div class="userCard">
+        <h2 class="name">{{user.name}}</h2>
+        <br>
+        <p class="email">{{user.email}}</p>
+        <br>
+        <div class="buttonsCard">
+            <a class="buttonUser" href="/edit_user">Editar conta</a> 
+            <button id="btn-delete-user" class="buttonUser" href="#">Deletar conta</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgb(153, 137, 204);
+}
+
+#login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+    border-radius: 10%;
+    background: rgb(204, 194, 194);
+}
+
+.link_cadastrar{
+    text-decoration: none;
+    color: rgb(69, 35, 189);
+}
+
+.link_cadastrar:hover{
+    color: black;
+}
+
+.button_login{
+    margin-top: 10px;
+    height: 30px;
+    width: 180px;
+    border-radius: 40px;
+}
+
+.button_login:hover{
+    background: rgb(102, 97, 97);
+}
+
+.error{
+    margin: 0;
+    color: red;
+}

@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgb(142, 126, 197);
+}
+#register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 400px;
+    border-radius: 10%;
+    background: rgb(204, 194, 194);
+}
+
+.button_enviar{
+    margin-top: 20px;
+    height: 30px;
+    width: 180px;
+    border-radius: 40px;
+}
+
+.button_enviar:hover{
+    background: rgb(102, 97, 97);
+}

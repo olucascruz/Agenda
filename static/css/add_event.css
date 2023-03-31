@@ -1,0 +1,19 @@
+
+.form_add_event{
+    height: 500px;
+    width: 400px;
+    background-color: rgb(204, 194, 194);
+   
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+    
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgb(142, 126, 197);
+}

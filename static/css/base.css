@@ -5,7 +5,7 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: rgb(153, 137, 204);
+    background: rgb(233, 232, 236);
 }
 .top_bar{
     display: flex;
@@ -24,7 +24,11 @@ body{
     font-size: larger;
     right: 0;
     width: 50px;
-    background: rgb(250, 113, 113);
+    background: rgb(0, 0, 0);
+}
+
+.logout_txt{
+    color: white;
 }
 
 .logout a{
@@ -39,7 +43,8 @@ body{
     border-radius: 50%;
     left: 48%;
     right: 50%;
-
+    background-color: black;
+    color:white;
 }
 
 .switch_screen{

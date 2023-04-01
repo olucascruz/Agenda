@@ -29,6 +29,8 @@
     align-items: center;
     justify-content: center;
     width: 20%;
+    background-color: white;
+    border: .01rem solid black;
 }
 .icon_del img{
     height: 50%;

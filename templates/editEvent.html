@@ -9,12 +9,13 @@
     <title>Agenda</title>
 </head>
 <body>
+    <p style="display: none;">{{base_url}}</p>
     <div class="form_add_event">
         <h1>Editar Evento</h1>
         <hr>
         <br>
-        <p id="event-id" style="display: none;">{{event['id']}}</p>
-        <form id= "form-edit-event" method="post">
+        <p id="event_id" style="display: none;">{{event['id']}}</p>
+        <form id="form_edit_event">
             <input name="title" type="text" placeholder="Titulo" value="{{event['title']}}">
             <br>
             <input placeholder="dd-mm-yyyy" name="date" type="date" id="date"  value="{{event['date']}}" required>

@@ -8,12 +8,14 @@
     <title>Agenda</title>
 </head>
 <body>
+    <p id="base_url" style="display: none;">{{base_url}}</p>
+    <p id="event_id" style="display: none;">{{user_id}}</p>
     <div id="register">
         <h1>EDITAR</h1>
         {% if error %}
         {{error}}
         {% endif %}
-        <form action="/edit_user" method="POST">
+        <form id="form_edit_user">
             <input name="name" type="text" placeholder="Name">
             <br>
             <input name="email" type="text" placeholder="Email">

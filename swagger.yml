@@ -1,0 +1,223 @@
+openapi: 3.0.0
+info:
+  title: "MPS Flask REST API"
+  description: "An API about people and notes"
+  version: "1.0.0"
+
+servers:
+  - url: "/api"
+
+components:
+  schemas:
+    User:
+      type: "object"
+      properties:
+        user_id:
+          type: "integer"
+        user_name:
+          type: "string"
+        
+    
+    Event:
+      type: "object"
+      properties:
+        event_id:
+            type: "integer"
+        event_title:
+          type: "string"
+        event_description:
+          type: "string"
+        event_date:
+          type: "string"
+          format: "date"
+        user_id:
+          type: "integer"  
+  parameters:
+    user_id:
+      name: "user_id"
+      description: "ID of the person to get"
+      in: path
+      required: True
+      schema:
+        type: "string"
+    event_id:
+      name: "event_id"
+      description: "ID of the event to get"
+      in: path
+      required: True
+      schema:
+        type: "string"
+paths:
+  /user:
+    get:
+      operationId: "user.read_all"
+      tags:
+        - "User"
+      summary: "Read the list of users"
+      responses:
+        "200":
+          description: "Sucessfully read user list"
+
+    post:
+      operationId: "user.register"
+      tags:
+        - "User"
+      summary: "Create a new user"
+      requestBody:
+        description: "User to create"
+        required: true
+        content:
+          application/json:
+            schema:
+              x-body-name: "user"
+              $ref: "#/components/schemas/User"
+      responses:
+        "201":
+          description: "Sucessfully created user"  
+  /user/{user_id}:
+    get:
+      operationId: "user.read"
+      tags:
+        - "User"
+      summary: "Read one user"
+      responses:
+        "200":
+          description: "Sucessfully read user list"    
+  
+  /user/login:
+    post:
+      operationId: "user.login"
+      tags:
+        - "User"
+      summary: "user login"
+      responses:
+        "200":
+          description: "Successfully user login"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              x-body-name: "user"
+              $ref: "#/components/schemas/User"
+  
+  /user/logout:
+    patch:
+      operationId: "user.logout"
+      tags:
+        - "User"
+      summary: "user logout"
+      responses:
+        "200":
+          description: "Successfully user logout"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              x-body-name: "user"
+              $ref: "#/components/schemas/User"
+  
+  /user/{user_id}:
+    get:
+      operationId: "user.read"
+      tags:
+        - "User"
+      summary: "Read one user"
+      parameters:
+        - $ref: "#/components/parameters/user_id"
+      responses:
+        "200":
+          description: "Successfully read user"
+
+    patch:
+      tags:
+        - "User"
+      operationId: "user.update"
+      summary: "Update a user"
+      parameters:
+        - $ref: "#/components/parameters/user_id"
+      responses:
+        "200":
+          description: "Successfully updated user"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              x-body-name: "user"
+              $ref: "#/components/schemas/User"
+    delete:
+      tags:
+        - "User"
+      operationId: "user.delete"
+      summary: "Delete a user"
+      parameters:
+        - $ref: "#/components/parameters/user_id"
+      responses:
+        "204":
+          description: "Successfully deleted user"
+  
+
+  /event/{user_id}:
+    get:
+      operationId: "event.read_all"
+      tags:
+        - "Event"
+      summary: "Read the list of events"
+      responses:
+        "200":
+          description: "Sucessfully read event list"
+    post:
+      operationId: "event.create"
+      tags:
+        - "Event"
+      summary: "Create a new event"
+      requestBody:
+        description: "Event to create"
+        required: true
+        content:
+          application/json:
+            schema:
+              x-body-name: "event"
+              $ref: "#/components/schemas/Event"
+      responses:
+        "201":
+          description: "Sucessfully created event"
+
+  /event/{event_id}:
+    get:
+      operationId: "event.read"
+      tags:
+        - "Event"
+      summary: "Read one event"
+      parameters:
+        - $ref: "#/components/parameters/event_id"
+      responses:
+        "200":
+          description: "Successfully read event"
+
+    put:
+      tags:
+        - "Event"
+      operationId: "event.update"
+      summary: "Update a event"
+      parameters:
+        - $ref: "#/components/parameters/event_id"
+      responses:
+        "200":
+          description: "Successfully updated event"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              x-body-name: "event"
+              $ref: "#/components/schemas/Event"
+
+    delete:
+      tags:
+        - "Event"
+      operationId: "event.delete"
+      summary: "Delete a event"
+      parameters:
+        - $ref: "#/components/parameters/event_id"
+      responses:
+        "204":
+          description: "Successfully deleted event"

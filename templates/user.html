@@ -13,9 +13,9 @@
 </head>
 <body>
     <div id="modal-user" class="modal_delete hidden" >
-        <form action="/del_user" method="post">
+        <form action="/del_user/{{user['user_id']}}" method="post">
             <p>Voce deseja mesmo deletar sua conta?</p>
-            <input type="text"  placeholder="senha"  name="password" value="{{user['id']}}">
+            <input type="password"  placeholder="senha"  name="password">
             <div class="btn-modal">
             <button type="submit" class="btn-sim">Sim</button>
             <button type="button" class="btn-nao">Não</button>
@@ -23,12 +23,12 @@
         </form>
     </div>
     <div class="userCard">
-        <h2 class="name">{{user.name}}</h2>
+        <h2 class="name">nome: {{user.user_name}}</h2>
         <br>
-        <p class="email">{{user.email}}</p>
+        <p class="email">email: {{user.user_email}}</p>
         <br>
         <div class="buttonsCard">
-            <a class="buttonUser" href="/edit_user">Editar conta</a> 
+            <a class="buttonUser" href="/edit_user/{{user.user_id}}">Editar conta</a> 
             <button id="btn-delete-user" class="buttonUser" href="#">Deletar conta</button>
         </div>
     </div>

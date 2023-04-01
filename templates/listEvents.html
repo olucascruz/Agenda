@@ -6,10 +6,10 @@
 <div class="event_list">
     {% if  events %}
     {% for event in events %}
-        <div id="modal-{{event['id']}}" class="modal_delete hidden" >
-            <form action="/del_event" method="post">
-                <p>Voce deseja mesmo deletar '{{event.title}}'?</p>
-                <input type="text" name="id" value="{{event['id']}}" style="display: none;">
+        <div id="modal-{{event['event_id']}}" class="modal_delete hidden" >
+            <form action="/del_event/{{event['event_id']}}" method="post">
+                <p>Voce deseja mesmo deletar '{{event.event_title}}'?</p>
+                <input type="text" name="id" value="{{event['event_id']}}" style="display: none;">
                 <div class="btn-modal">
                 <button type="submit" class="btn-sim">Sim</button>
                 <button type="button" class="btn-nao">Não</button>
@@ -17,15 +17,15 @@
             </form>
         </div>
         <div class="event">
-            <a class="icon_edit" href="/edit_event/{{event['id']}}">
+            <a class="icon_edit" href="/edit_event/{{event['event_id']}}">
                 <img src="https://th.bing.com/th/id/R.9df276e92ec2b1252de8c88a039a786f?rik=VhRwURYBLxco%2fw&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_224870.png&ehk=sxDoKjeIwgARYqZ7r%2fC7cPeFTIG6RegoMiWE0%2bpHcWY%3d&risl=&pid=ImgRaw&r=0" alt="lapis" height="50px" width="50px"/>
             </a>    
-            <a class="a_event" href="/event/{{event['id']}}">
-                {{event["title"]}} 
+            <a class="a_event" href="/event/{{event['event_id']}}">
+                {{event["event_title"]}} 
                 <br>
-                {{event["date"]}}
+                {{event["event_date"]}}
             </a>
-            <button  class="icon_del" id='{{event["id"]}}'>
+            <button  class="icon_del" id='{{event["event_id"]}}'>
                 <img src="https://static.thenounproject.com/png/5415783-200.png" alt="borracha" height="40px" width="40px">
             </button>
     </div>

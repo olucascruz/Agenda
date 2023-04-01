@@ -5,24 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/add_event.css">
-    <script src="../static/scripts/editEvent.js" defer></script>
+    <script src="/static/scripts/editEvent.js" defer></script>
     <title>Agenda</title>
 </head>
 <body>
-    <p style="display: none;">{{base_url}}</p>
+    <p id="base_url" style="display: none;">{{base_url}}</p>
+    <p id="event_id" style="display: none;">{{event['event_id']}}</p>
+
     <div class="form_add_event">
         <h1>Editar Evento</h1>
         <hr>
         <br>
-        <p id="event_id" style="display: none;">{{event['id']}}</p>
-        <form id="form_edit_event">
-            <input name="title" type="text" placeholder="Titulo" value="{{event['title']}}">
+        <form id="form_edit_event" method="patch">
+            <input name="title" type="text" placeholder="Titulo" value="{{event['event_title']}}" required>
             <br>
-            <input placeholder="dd-mm-yyyy" name="date" type="date" id="date"  value="{{event['date']}}" required>
-            <input type="time" id="time" name="hour" required
-            value="{{event['hour']}}">
+            <input placeholder="dd-mm-yyyy" name="date" type="date" id="date"  value="{{event['event_date']}}" required>
+            <input type="time" id="time" name="hour" 
+            value="{{event['event_hour']}}" required>
             <br>
-            <textarea placeholder="Descrição" name="description" id="description" cols="30" rows="10">{{event['description']}}</textarea>
+            <textarea placeholder="Descrição" name="description" id="description" cols="30" rows="10" required>{{event['event_description']}}</textarea>
             <br>     
             <input type="submit">
         </form>

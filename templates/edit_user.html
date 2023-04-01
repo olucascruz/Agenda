@@ -5,24 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/cadaster.css">
+    <script src="/static/scripts/edit_user.js" defer></script>
     <title>Agenda</title>
 </head>
 <body>
     <p id="base_url" style="display: none;">{{base_url}}</p>
-    <p id="event_id" style="display: none;">{{user_id}}</p>
+    <p id="user_id" style="display: none;">{{user_id}}</p>
     <div id="register">
         <h1>EDITAR</h1>
         {% if error %}
         {{error}}
         {% endif %}
-        <form id="form_edit_user">
-            <input name="name" type="text" placeholder="Name">
+        <form id="form_edit_user" method="patch">
+            <input name="name" type="text" placeholder="Name" value="{{user.user_name}}">
             <br>
-            <input name="email" type="text" placeholder="Email">
+            <input name="email" type="text" placeholder="Email" value="{{user.user_email}}">
             <br>
-            <input name="password" type="text" placeholder="Senha">
-            <br>
-            <input name="actual_password" type="text" placeholder="Senha Atual">
+            <input name="actual_password" type="password" placeholder="Senha Atual">
             <br>
             <input class="button_enviar" type="submit"> 
         </form>

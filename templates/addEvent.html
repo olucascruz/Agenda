@@ -12,13 +12,13 @@
         <h1>Adicionar Evento</h1>
         <hr>
         <br>
-        <form action="/login"  method="POST" id="form-add-event">
-            <input name="event_title" type="text" placeholder="Titulo">
+        <form action="/add_event"  method="POST" id="form-add-event">
+            <input name="event_title" type="text" placeholder="Titulo" required>
             <br>
             <input placeholder="Data" name="event_date" type="date" id="date" required>
             <input type="time" id="time" name="event_hour" required>
             <br>
-            <textarea placeholder="Descrição" name="event_description" id="" cols="30" rows="10"></textarea>
+            <textarea placeholder="Descrição" name="event_description" id="" cols="30" rows="10" required></textarea>
             <br>
             <input type="submit">
         </form>
